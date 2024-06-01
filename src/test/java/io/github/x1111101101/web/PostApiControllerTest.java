@@ -50,8 +50,8 @@ public class PostApiControllerTest {
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 
         //then
-        assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
-        assertTrue(responseEntity.getBody() > 0L);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertTrue(responseEntity.getBody() > 0);
         List<Posts> all = postsRepository.findAll();
         assertEquals(all.getFirst().getTitle(), title);
         assertEquals(all.getFirst().getContent(), content);
